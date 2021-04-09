@@ -1,10 +1,9 @@
-export interface Phone {
+import { Good } from "./good";
 
-    id: number;
+export interface Phone extends Good {
 
     modelName: string;
 
     description: string;
 
-    inStockQuantity: number;
 }

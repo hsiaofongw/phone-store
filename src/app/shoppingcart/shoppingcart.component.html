@@ -1,1 +1,6 @@
-<p>购物车{{nItems}}件</p>
+<div>
+    <div><p>购物车</p></div>
+    <div><p>总共{{getNoItems()}}件</p></div>
+    <div><p>总价{{getTotalPrice()}}元</p></div>
+    <button *ngIf="getNoItems()">查看购物车</button>
+</div>

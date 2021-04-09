@@ -4,21 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { ShoppingCartComponent } from './shoppingcart/shoppingcart.component';
 import { PhonelistComponent } from './phonelist/phonelist.component';
 import { PhonedetailComponent } from './phonedetail/phonedetail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingcartComponent,
+    ShoppingCartComponent,
     PhonelistComponent,
-    PhonedetailComponent
+    PhonedetailComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryService } from '../inventory.service';
 import { Phone } from '../phone';
+import { phones } from '../phones-data';
 
 @Component({
   selector: 'app-phonelist',
@@ -8,16 +10,19 @@ import { Phone } from '../phone';
 })
 export class PhonelistComponent implements OnInit {
 
-  phones: Phone[] = [
-    { id: 0, modelName: 'phone1', description: 'desc1', inStockQuantity: 1},
-    { id: 1, modelName: 'phone2', description: 'desc2', inStockQuantity: 10},
-    { id: 2, modelName: 'phone3', description: 'desc3', inStockQuantity: 8},
-    { id: 3, modelName: 'phone4', description: 'desc4', inStockQuantity: 100},
-  ];
+  phones: Phone[] = [];
 
-  constructor() { }
+  constructor(private inventoryService: InventoryService) { 
+  }
 
   ngOnInit(): void {
+
+    // 从文件中读入商品列表
+    this.phones = phones;
+
+    for (const phone of phones) {
+      this.inventoryService.putIn(phone.id, phone.inStockQuantity);
+    }
   }
 
 }
