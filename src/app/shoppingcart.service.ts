@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Good } from './good';
 import { IShoppingCart } from './shoppingcartstate';
+import { ShoppingCartSummaryLine } from './shoppingcartsummary';
 
 @Injectable({
   providedIn: 'root'
@@ -96,5 +97,24 @@ export class ShoppingCartService {
     else {
       return 0;
     }
+  }
+
+  getSummary(): ShoppingCartSummaryLine[] {
+    let summary: ShoppingCartSummaryLine[] = [];
+    for (const itemId in this.state) {
+      const good = this.state[itemId].good;
+      const quantity = this.state[itemId].quantity;
+
+      let summaryLine: ShoppingCartSummaryLine = {
+        price: good.price,
+        totalPrice: good.price * quantity,
+        quantity: quantity,
+        modelName: good.modelName,
+      };
+
+      summary.push(summaryLine);
+    }
+
+    return summary;
   }
 }

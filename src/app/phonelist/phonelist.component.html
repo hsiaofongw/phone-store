@@ -1,3 +1,6 @@
+<button *ngIf="getNoItems()">
+    <a routerLink="/cart">查看购物车</a>
+</button>
 <ul>
     <li *ngFor="let phone of phones">
         <app-phonedetail [phone]="phone"></app-phonedetail>

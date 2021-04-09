@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhoneListComponent } from './phonelist.component';
+import { SummaryLineComponent } from './summary-line.component';
 
-describe('PhoneListComponent', () => {
-  let component: PhoneListComponent;
-  let fixture: ComponentFixture<PhoneListComponent>;
+describe('SummaryLineComponent', () => {
+  let component: SummaryLineComponent;
+  let fixture: ComponentFixture<SummaryLineComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PhoneListComponent ]
+      declarations: [ SummaryLineComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PhoneListComponent);
+    fixture = TestBed.createComponent(SummaryLineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
