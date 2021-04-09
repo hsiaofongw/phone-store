@@ -11,6 +11,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ShoppingCartOverviewComponent } from './shoppingcartoverview/shoppingcartoverview.component';
 import { SummaryLineComponent } from './summary-line/summary-line.component';
 import { ShoppingCartPreviewComponent } from './shopping-cart-preview/shopping-cart-preview.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ShoppingCartPreviewComponent } from './shopping-cart-preview/shopping-c
     CheckoutComponent,
     ShoppingCartOverviewComponent,
     SummaryLineComponent,
-    ShoppingCartPreviewComponent
+    ShoppingCartPreviewComponent,
+    CheckoutPageComponent
   ],
   imports: [
     BrowserModule,

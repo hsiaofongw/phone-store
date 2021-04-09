@@ -1,0 +1,14 @@
+<h2>结账</h2>
+<div>
+    <span>总价：</span><span>{{getTotalAmount()}}</span>
+</div>
+<div>
+    <h3>支付方式选择</h3>
+    <form>
+        <div *ngFor="let paymentMethod of paymentMethods">
+        <input type="radio" name="paymentMethod" value="{{paymentMethod.id}}" />
+        <label>{{paymentMethod.name}}</label>
+        </div>
+        <button (click)="onPayButtonClick($event)">去支付</button>
+    </form>
+</div>
