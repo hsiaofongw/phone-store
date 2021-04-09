@@ -21,6 +21,6 @@
     </div>
     <div>
         <button (click)="addItem(phone)">加入购物车</button>
-        <button *ngIf="queryQuantityInCart(phone)" >移出购物车</button>
+        <button *ngIf="queryQuantityInCart(phone)" (click)="removeOneItem(phone)" >移出购物车</button>
     </div>
 </div>

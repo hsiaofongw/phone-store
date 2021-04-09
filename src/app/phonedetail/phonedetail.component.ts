@@ -23,6 +23,10 @@ export class PhonedetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * 将一部手机加入购物车
+   * @param phone 手机
+   */
   addItem(phone: Phone): void {
 
     const quantityInCart = this.shoppingCartService.queryQuantityInCart(phone.id);
@@ -33,10 +37,29 @@ export class PhonedetailComponent implements OnInit {
     }
   }
 
+  /**
+   * 将一部手机移出购物车
+   */
+  removeOneItem(phone: Phone): void {
+    const quantityInCart = this.shoppingCartService.queryQuantityInCart(phone.id);
+
+    if (quantityInCart > 0) {
+      this.shoppingCartService.removeOneItem(phone.id);
+    }
+  }
+
+  /**
+   * 查询一部手机在购物车中的数量
+   * @param phone 手机
+   */
   queryQuantityInCart(phone: Phone): number {
     return this.shoppingCartService.queryQuantityInCart(phone.id);
   }
 
+  /**
+   * 查询一部手机在仓库中的数量
+   * @param phone 手机
+   */
   queryQuantityInInventory(phone: Phone): number {
     return this.inventoryService.queryQuantity(phone.id);
   }

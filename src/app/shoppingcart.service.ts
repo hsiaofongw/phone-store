@@ -11,7 +11,11 @@ export class ShoppingCartService {
 
   constructor() { }
 
-  // 将一件商品添加至购物车
+  /**
+   * 将一件商品添加至购物车
+   * @param item 商品对象
+   * @param quantity 数列
+   */
   addItem(item: Good, quantity: number = 1): void {
     if (item.id in this.state) {
       this.state[item.id].quantity += 1;
@@ -24,7 +28,10 @@ export class ShoppingCartService {
     }
   }
 
-  // 将购物车中的一件商品减少一件
+  /**
+   * 将购物车中的一件商品减少一件
+   * @param itemId 商品的唯一编号
+   */
   removeOneItem(itemId: number): void {
     if (itemId in this.state) {
       this.state[itemId].quantity -= 1;
