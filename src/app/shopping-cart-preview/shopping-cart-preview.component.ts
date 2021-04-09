@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../shoppingcart.service';
 
 @Component({
-  selector: 'app-shoppingcart',
-  templateUrl: './shoppingcart.component.html',
-  styleUrls: ['./shoppingcart.component.scss']
+  selector: 'app-shopping-cart-preview',
+  templateUrl: './shopping-cart-preview.component.html',
+  styleUrls: ['./shopping-cart-preview.component.scss']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartPreviewComponent implements OnInit {
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 

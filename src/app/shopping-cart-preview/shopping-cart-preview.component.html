@@ -1,0 +1,8 @@
+<div>
+    <div><h2>当前已选：</h2></div>
+    <div>总共{{getNoItems()}}件</div>
+    <div>总价{{getTotalPrice()}}元</div>
+    <button *ngIf="getNoItems()">
+        <a routerLink="/cart">查看购物车</a>
+    </button>
+</div>
