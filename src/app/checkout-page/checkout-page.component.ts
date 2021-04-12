@@ -41,7 +41,8 @@ export class CheckoutPageComponent implements OnInit {
     event.stopPropagation();
 
     const paymentMethodName = this.paymentMethodIdToPaymentMethodName[this.selectedPaymentMethod];
-    window.alert(`已使用${paymentMethodName}支付成功，正在帮您跳转到首页……`);
+    const totalAmount = this.getTotalAmount();
+    window.alert(`已使用${paymentMethodName}成功支付${totalAmount}元，正在帮您跳转到首页……`);
     window.open('/', '_self');
   }
 
