@@ -4,11 +4,16 @@
 </div>
 <div>
     <h3>支付方式选择</h3>
-    <form>
-        <div *ngFor="let paymentMethod of paymentMethods">
-        <input type="radio" name="paymentMethod" value="{{paymentMethod.id}}" />
-        <label>{{paymentMethod.name}}</label>
-        </div>
-        <button (click)="onPayButtonClick($event)">去支付</button>
-    </form>
+    <div>
+        <nz-radio-group [(ngModel)]="selectedPaymentMethod">
+            <label 
+                nz-radio 
+                *ngFor="let paymentMethod of paymentMethods"
+                nzValue="{{ paymentMethod.id }}"
+            >{{ paymentMethod.name }}</label>
+        </nz-radio-group>
+    </div>
+    <div>
+        <button nz-button nzType="primary" (click)="onPayButtonClick($event)">Primary Button</button>
+    </div>
 </div>

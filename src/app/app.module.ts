@@ -12,6 +12,17 @@ import { ShoppingCartOverviewComponent } from './shoppingcartoverview/shoppingca
 import { SummaryLineComponent } from './summary-line/summary-line.component';
 import { ShoppingCartPreviewComponent } from './shopping-cart-preview/shopping-cart-preview.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { zh_CN } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+
+registerLocaleData(zh);
 
 @NgModule({
   declarations: [
@@ -28,9 +39,14 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NzButtonModule,
+    NzRadioModule,
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

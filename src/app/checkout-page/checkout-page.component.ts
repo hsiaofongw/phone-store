@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../shoppingcart.service';
 import { PaymentMethod } from './paymentMethod';
 import { availablePaymentMethods } from './available-payment-methods';
+import { NzButtonSize } from 'ng-zorro-antd/button';
+
+type PaymentMethodsIndices = {
+  [key: string]: string;
+}
 
 @Component({
   selector: 'app-checkout-page',
@@ -10,12 +15,18 @@ import { availablePaymentMethods } from './available-payment-methods';
 })
 export class CheckoutPageComponent implements OnInit {
 
+
+  selectedPaymentMethod: string = "";
   paymentMethods: PaymentMethod[] = [];
+  paymentMethodIdToPaymentMethodName: PaymentMethodsIndices = {};
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit(): void {
     this.paymentMethods = availablePaymentMethods;
+    for (const p of this.paymentMethods) {
+      this.paymentMethodIdToPaymentMethodName[p.id] = p.name;
+    }
   }
 
   /**
@@ -28,7 +39,9 @@ export class CheckoutPageComponent implements OnInit {
   onPayButtonClick(event: MouseEvent): void {
     event.preventDefault();
     event.stopPropagation();
-    window.alert(`已使用支付方式支付成功，正在帮您跳转到首页……`);
+
+    const paymentMethodName = this.paymentMethodIdToPaymentMethodName[this.selectedPaymentMethod];
+    window.alert(`已使用${paymentMethodName}支付成功，正在帮您跳转到首页……`);
     window.open('/', '_self');
   }
 
